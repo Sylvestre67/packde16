@@ -1,0 +1,8 @@
+{
+	"name": "#packde16",
+	"description": "#packde16",
+	"repository": "",
+	"logo": "",
+	"keywords": ["node", "express", "heroku", "react", "packde16"],
+	"image": "heroku/nodejs"
+}
