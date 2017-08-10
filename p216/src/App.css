@@ -19,3 +19,26 @@
   background-image: url('./img/caisse.png');
 }
 
+.App.bombes{
+  background-image: url('./img/bombes.png');
+}
+
+.App.burger{
+  background-image: url('./img/burger.png');
+}
+
+.App.phone{
+  background-image: url('./img/phone.png');
+}
+
+.App.ride{
+  background-image: url('./img/ride.png');
+}
+
+.App.dinner{
+  background-image: url('./img/dinner.png');
+}
+
+.App.toy{
+  background-image: url('./img/toy.png');
+}

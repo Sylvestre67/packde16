@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Museo300";
+  src: url("../assets/fonts/Museo300-Regular.otf") format("opentype"); }
+
+@keyframes slide-up {
+  from {
+    top: 65vh;
+    opacity: 0; }
+  to {
+    top: 50vh;
+    opacity: 1; } }
+
+.message {
+  position: absolute;
+  opacity: 0;
+  max-width: 50%;
+  width: 50%;
+  margin-left: 25%;
+  top: 50vh;
+  font-family: Museo300;
+  text-align: center;
+  background-color: rgba(238, 238, 238, 0.6);
+  animation: slide-up 2s ease 3.5s;
+  animation-fill-mode: forwards; }
+
+/*# sourceMappingURL=Message.css.map */
