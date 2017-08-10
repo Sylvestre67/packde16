@@ -21,8 +21,6 @@ class App extends Component {
 	}
 
 	updateCounter(i){
-		console.log(i);
-
 		if(i > 6){
 			return;
 		}
