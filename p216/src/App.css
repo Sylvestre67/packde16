@@ -1,44 +1,21 @@
+@font-face {
+  font-family: "Museo300";
+  src: url("./assets/fonts/Museo300-Regular.otf") format("opentype"); }
+
 .App {
-  position:absolute;
-  height:100%;
-  width:100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	position:absolute;
+	width:100%;
+	height:100%;
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
-.App.blue-sky{
-  background-image: url('./img/blue_sky.png');
-}
-
-.App.caisse{
-  background-image: url('./img/caisse.png');
-}
-
-.App.bombes{
-  background-image: url('./img/bombes.png');
-}
-
-.App.burger{
-  background-image: url('./img/burger.png');
-}
-
-.App.phone{
-  background-image: url('./img/phone.png');
-}
-
-.App.ride{
-  background-image: url('./img/ride.png');
-}
-
-.App.dinner{
-  background-image: url('./img/dinner.png');
-}
-
-.App.toy{
-  background-image: url('./img/toy.png');
+.App .illustrations{
+	max-height: 60vh;
 }

@@ -8,8 +8,7 @@ class Message extends Component{
 	render() {
 		return (
 			<div className="message">
-				<h3>#PACKDE16</h3>
-				<p>Comming Soon</p>
+				<p>Content</p>
 			</div>
 		);
 	}

@@ -1,0 +1,9 @@
+.illustration{
+	text-align:center;
+	background-color:green;
+}
+
+.illustration > img{
+	width:50%;
+	height:auto;
+}
