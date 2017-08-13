@@ -56,8 +56,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App"
-			     style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>
+			<div className="App">
+			     {/*style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>*/}
 				<ReactSwipe ref="reactSwipe"
 				            className="illustrations"
 				            swipeOptions={{
@@ -68,9 +68,9 @@ class App extends Component {
 				            }}>
 					{this.renderIllustrations()}
 				</ReactSwipe>
-				<Controls onClickPrevious={this.prevTrack}
-					onClickNext={this.nextTrack}/>
-				<Track images={this.listOfImages} />
+				{/*<Controls onClickPrevious={this.prevTrack}*/}
+					{/*onClickNext={this.nextTrack}/>*/}
+				{/*<Track images={this.listOfImages} />*/}
 			</div>
 		);
 	}
