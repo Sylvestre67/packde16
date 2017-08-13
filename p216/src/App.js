@@ -60,7 +60,12 @@ class App extends Component {
 			     style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>
 				<ReactSwipe ref="reactSwipe"
 				            className="illustrations"
-				            swipeOptions={{continuous: false}}>
+				            swipeOptions={{
+					            speed: 500,
+					            disableScroll: true,
+					            stopPropagation: true,
+				            	continuous: false
+				            }}>
 					{this.renderIllustrations()}
 				</ReactSwipe>
 				<Controls onClickPrevious={this.prevTrack}
