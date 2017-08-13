@@ -3,6 +3,7 @@ import ReactSwipe from 'react-swipe';
 
 import Track from './component/Track';
 import Illustration from './component/Illustration';
+import Controls from './component/Controls';
 
 import './App.css';
 
@@ -18,8 +19,11 @@ import toy from './img/toy.png';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.listOfImages = [bombes, blue_sky, caisse, burger, phone, ride, dinner, toy];
+		this.listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy];
+
 		this.renderIllustrations = this.renderIllustrations.bind(this);
+		this.prevTrack = this.prevTrack.bind(this);
+		this.nextTrack = this.nextTrack.bind(this);
 	}
 
 	componentWillMount(){
@@ -27,11 +31,21 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-
+		setTimeout(()=>{
+			this.refs.reactSwipe.next();
+		},1000);
 	}
 
 	componentDidUpdate(props,state,refs){
 
+	}
+
+	nextTrack() {
+		this.refs.reactSwipe.next();
+	}
+
+	prevTrack() {
+		this.refs.reactSwipe.prev();
 	}
 
 	renderIllustrations(){
@@ -43,10 +57,14 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App"
-			     style={{'backgroundImage': ['url(', bombes, ')'].join('')}}>
-				<ReactSwipe className="illustrations" swipeOptions={{continuous: false}}>
+			     style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>
+				<ReactSwipe ref="reactSwipe"
+				            className="illustrations"
+				            swipeOptions={{continuous: false}}>
 					{this.renderIllustrations()}
 				</ReactSwipe>
+				<Controls onClickPrevious={this.prevTrack}
+					onClickNext={this.nextTrack}/>
 				<Track images={this.listOfImages} />
 			</div>
 		);

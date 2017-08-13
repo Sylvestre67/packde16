@@ -1,9 +1,18 @@
 .illustration{
-	text-align:center;
-	background-color:green;
+	position:relative;
+	float: left;
+	height: 60vh;
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .illustration > img{
-	width:50%;
-	height:auto;
+	width:80%;
+	padding: 5% 10%;
 }

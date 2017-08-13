@@ -1,40 +1,32 @@
 
-/*@keyframes slide-up {*/
-	/*from {*/
-		/*bottom: -100vh;*/
-	/*}*/
-	/*to {*/
-		/*bottom: 0;*/
-	/*}*/
-/*}*/
-
-/*@keyframes slide-down {*/
-	/*from {*/
-		/*bottom: 100vh;*/
-	/*}*/
-	/*to {*/
-		/*bottom: 0vh;*/
-	/*}*/
-/*}*/
-
-/*@keyframes on-leave {*/
-	/*from {*/
-		/*top: 0;*/
-	/*}*/
-	/*to {*/
-		/*top: -100vh;*/
-	/*}*/
-/*}*/
-
-.track{
-	/*position:absolute;*/
-	/*top:10vh;*/
-	/*height:80vh;*/
-	/*width:80%;*/
-	/*margin-left:10%;*/
-	background-color:rgba(255,255,255,0.5);
+@keyframes slide-up {
+	from {
+		bottom: -100vh;
+	}
+	to {
+		bottom: 0;
+	}
 }
 
-.track .illustrations{
-	height: inherit;
+@keyframes slide-down {
+	from {
+		bottom: 100vh;
+	}
+	to {
+		bottom: 0vh;
+	}
+}
+
+@keyframes on-leave {
+	from {
+		top: 0;
+	}
+	to {
+		top: -100vh;
+	}
+}
+
+.track{
+	background-color:rgba(255,255,255,0.5);
+	padding: 0 10%;
 }

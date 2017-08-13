@@ -1,0 +1,12 @@
+.controls{
+	margin: 0 10%;
+	background-color:rgba(255,255,255,0.5);
+	text-align:center;
+}
+
+@media screen and (min-width: 800px){
+	.controls{
+		display:none;
+	}
+}
+
