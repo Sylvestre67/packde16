@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import ReactSwipe from 'react-swipe';
 
-import Track from './component/Track';
 import Illustration from './component/Illustration';
-import Controls from './component/Controls';
+import MediaPlayer from './component/MediaPlayer';
 
 import './App.css';
 
@@ -15,6 +17,8 @@ import phone from './img/phone.png';
 import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
+
+injectTapEventPlugin();
 
 class App extends Component {
 	constructor(props) {
@@ -32,7 +36,7 @@ class App extends Component {
 
 	componentDidMount() {
 		setTimeout(()=>{
-			this.refs.reactSwipe.next();
+			// this.refs.reactSwipe.next();
 		},1000);
 	}
 
@@ -56,22 +60,22 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-			     {/*style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>*/}
-				<ReactSwipe ref="reactSwipe"
-				            className="illustrations"
-				            swipeOptions={{
-					            speed: 500,
-					            disableScroll: true,
-					            stopPropagation: true,
-				            	continuous: false
-				            }}>
-					{this.renderIllustrations()}
-				</ReactSwipe>
-				{/*<Controls onClickPrevious={this.prevTrack}*/}
-					{/*onClickNext={this.nextTrack}/>*/}
-				{/*<Track images={this.listOfImages} />*/}
-			</div>
+			<MuiThemeProvider>
+				<div className="App"
+				     style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>
+					<ReactSwipe ref="reactSwipe"
+					            className="illustrations"
+					            swipeOptions={{
+						            speed: 500,
+						            disableScroll: true,
+						            stopPropagation: true,
+						            continuous: false
+					            }}>
+						{this.renderIllustrations()}
+					</ReactSwipe>
+					<MediaPlayer />
+				</div>
+			</MuiThemeProvider>
 		);
 	}
 }

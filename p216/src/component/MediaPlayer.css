@@ -1,4 +1,6 @@
 
 .media-player{
-
+	position: absolute;
+	top:75%;
+	width:100%;
 }

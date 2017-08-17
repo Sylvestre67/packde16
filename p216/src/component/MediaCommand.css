@@ -1,0 +1,11 @@
+
+.media-command{
+	width:100%;
+	text-align:center;
+}
+
+.media-command > .media-btn {
+	color:grey !important;
+	background-color:rgba(255,255,255,0.5) !important;
+	border-radius:48px !important;
+}
