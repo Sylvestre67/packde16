@@ -10,9 +10,9 @@ import audio from '../audio/sample.mp3';
 class MediaPlayer extends Component{
 
 	componentDidUpdate(prevProps, state, refs){
-		console.log(prevProps.media.currentTime);
-		console.log(this.props.media.currentTime);
-		console.log(state);
+		// console.log(prevProps.media.currentTime);
+		// console.log(this.props.media.currentTime);
+		// console.log(state);
 	}
 
 	render() {

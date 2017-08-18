@@ -6,6 +6,8 @@ import ReactSwipe from 'react-swipe';
 
 import Illustration from './component/Illustration';
 import MediaPlayer from './component/MediaPlayer';
+import NextPrevious from './component/NextPrevious';
+import Track from './component/Track';
 
 import './App.css';
 
@@ -24,19 +26,19 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy];
-
 		this.renderIllustrations = this.renderIllustrations.bind(this);
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
+
 	}
 
 	componentWillMount(){
-
+		this.setState(() => { return {'step': 0} });
 	}
 
 	componentDidMount() {
 		setTimeout(()=>{
-			// this.refs.reactSwipe.next();
+			// this.nextTrack();
 		},1000);
 	}
 
@@ -46,10 +48,18 @@ class App extends Component {
 
 	nextTrack() {
 		this.refs.reactSwipe.next();
+
+		this.setState((prevState) => {
+			return {step: this.refs.reactSwipe.getPos()}
+		});
 	}
 
 	prevTrack() {
 		this.refs.reactSwipe.prev();
+		this.setState(() => {
+			return {'step': this.refs.reactSwipe.getPos()}
+		});
+		console.log(this.state);
 	}
 
 	renderIllustrations(){
@@ -58,21 +68,30 @@ class App extends Component {
 		});
 	}
 
+	renderReactSwipe(){
+		return <ReactSwipe ref="reactSwipe"
+		                   className="illustrations"
+		                   swipeOptions={{
+			                   speed: 500,
+			                   disableScroll: true,
+			                   stopPropagation: true,
+			                   continuous: false
+		                   }}>
+			{this.renderIllustrations()}
+		</ReactSwipe>;
+	}
+
 	render() {
+		const react_swipe = this.renderReactSwipe()
 		return (
 			<MuiThemeProvider>
 				<div className="App"
 				     style={{'backgroundImage': ['url(', this.listOfImages[0], ')'].join('')}}>
-					<ReactSwipe ref="reactSwipe"
-					            className="illustrations"
-					            swipeOptions={{
-						            speed: 500,
-						            disableScroll: true,
-						            stopPropagation: true,
-						            continuous: false
-					            }}>
-						{this.renderIllustrations()}
-					</ReactSwipe>
+					{react_swipe}
+					<Track />
+					<NextPrevious step={this.state.step}
+						onNext={this.nextTrack}
+						onPrev={this.prevTrack} />
 					<MediaPlayer />
 				</div>
 			</MuiThemeProvider>

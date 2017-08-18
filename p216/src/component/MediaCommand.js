@@ -4,10 +4,9 @@ import './MediaCommand.css';
 import '../assets/icons/font/css/open-iconic.css';
 
 import IconButton from 'material-ui/IconButton';
-import Slider from 'material-ui/Slider';
 import AvPause from 'material-ui/svg-icons/av/pause';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
-import AvVolumeUp from 'material-ui/svg-icons/av/volume-up';
+
 
 import { withMediaProps } from 'react-media-player'
 

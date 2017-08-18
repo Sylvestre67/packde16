@@ -7,5 +7,5 @@ import registerServiceWorker from './registerServiceWorker';
 const ReactGA = require('react-ga');
 ReactGA.initialize('UA-104523856-1');
 
-ReactDOM.render(<App step={1}/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
