@@ -5,22 +5,18 @@ import PropTypes from 'prop-types';
 
 import './MediaPlayer.css';
 
-import audio from '../audio/sample.mp3';
-
 class MediaPlayer extends Component{
 
-	componentDidUpdate(prevProps, state, refs){
-		// console.log(prevProps.media.currentTime);
-		// console.log(this.props.media.currentTime);
-		// console.log(state);
-	}
+	componentDidUpdate(prevProps, state, refs){}
 
 	render() {
 		return (
 			<div className="media-player">
-				<Media media={audio}>
+				<Media media={this.props.audio}>
 					<div style={{width:'100%'}}>
-						<Player src={audio} vendor="audio"/>
+						<Player src={this.props.audio}
+						        vendor="audio"
+						        autoPlay={true}/>
 						<MediaCommand />
 					</div>
 				</Media>

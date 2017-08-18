@@ -20,12 +20,17 @@ import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
 
+import audio_1 from './audio/11_je_ne_comprends_pas.mp3';
+import audio_2 from './audio/pack_de_nyls.mp3';
+
 injectTapEventPlugin();
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy];
+		this.listOfMp3 = [audio_1,audio_2];
+
 		this.renderIllustrations = this.renderIllustrations.bind(this);
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
@@ -33,14 +38,15 @@ class App extends Component {
 	}
 
 	componentWillMount(){
-		this.setState(() => { return {'step': 0} });
+		this.setState(() => {
+			return {
+				step: 0,
+				audio: this.listOfMp3[0]
+			}
+		});
 	}
 
-	componentDidMount() {
-		setTimeout(()=>{
-			// this.nextTrack();
-		},1000);
-	}
+	componentDidMount() { }
 
 	componentDidUpdate(props,state,refs){
 
@@ -50,16 +56,21 @@ class App extends Component {
 		this.refs.reactSwipe.next();
 
 		this.setState((prevState) => {
-			return {step: this.refs.reactSwipe.getPos()}
+			return {
+				step: this.refs.reactSwipe.getPos(),
+				audio: this.listOfMp3[this.refs.reactSwipe.getPos()]
+			}
 		});
 	}
 
 	prevTrack() {
 		this.refs.reactSwipe.prev();
-		this.setState(() => {
-			return {'step': this.refs.reactSwipe.getPos()}
+		this.setState((prevState) => {
+			return {
+				step: this.refs.reactSwipe.getPos(),
+				audio: this.listOfMp3[this.refs.reactSwipe.getPos()]
+			}
 		});
-		console.log(this.state);
 	}
 
 	renderIllustrations(){
@@ -75,7 +86,15 @@ class App extends Component {
 			                   speed: 500,
 			                   disableScroll: true,
 			                   stopPropagation: true,
-			                   continuous: false
+			                   continuous: false,
+			                   transitionEnd: (index, elem) => {
+				                   this.setState(() => {
+					                   return {
+						                   step: index,
+						                   audio: this.listOfMp3[index]
+					                   }
+				                   });
+			                   }
 		                   }}>
 			{this.renderIllustrations()}
 		</ReactSwipe>;
@@ -92,7 +111,7 @@ class App extends Component {
 					<NextPrevious step={this.state.step}
 						onNext={this.nextTrack}
 						onPrev={this.prevTrack} />
-					<MediaPlayer />
+					<MediaPlayer audio={this.state.audio} />
 				</div>
 			</MuiThemeProvider>
 		);
