@@ -7,7 +7,6 @@ import IconButton from 'material-ui/IconButton';
 import AvPause from 'material-ui/svg-icons/av/pause';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
 
-
 import { withMediaProps } from 'react-media-player'
 
 const styles = {
@@ -49,18 +48,12 @@ class MediaCommand extends Component{
 
 	_handlePlayPause = () => {
 		this.props.media.playPause()
-	}
+	};
 
 	render() {
 		const { media } = this.props;
 		return (
 				<div className="media-command">
-					{/*<IconButton className="media-btn"*/}
-					            {/*style={styles.small}*/}
-					            {/*iconStyle={styles.smallIcon}>*/}
-						{/*<AvVolumeUp />*/}
-					{/*</IconButton>*/}
-					{/*<Slider style={{height: 100}} axis="y" defaultValue={0.5} />*/}
 					<IconButton className="media-btn"
 						style={styles.medium}
 					    touch={true}
@@ -72,5 +65,9 @@ class MediaCommand extends Component{
 		);
 	}
 }
+
+MediaCommand.propTypes = {
+	media: PropTypes.object.isRequired
+};
 
 export default withMediaProps(MediaCommand);

@@ -12,5 +12,9 @@ class Illustration extends Component{
 	}
 }
 
+Illustration.propTypes = {
+	name: PropTypes.string
+};
+
 export default Illustration;
 

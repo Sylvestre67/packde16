@@ -19,5 +19,10 @@ class Controls extends Component{
 	}
 }
 
+Controls.propTypes = {
+	onClickPrevious : PropTypes.func.isRequired,
+	onClickNext : PropTypes.func.isRequired,
+}
+
 export default Controls;
 
