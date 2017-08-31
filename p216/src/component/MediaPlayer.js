@@ -16,7 +16,7 @@ class MediaPlayer extends Component{
 					<div style={{width:'100%'}}>
 						<Player src={this.props.audio.url}
 						        vendor="audio"
-						        autoPlay={false}/>
+						        autoPlay={true}/>
 						<MediaCommand />
 					</div>
 				</Media>
