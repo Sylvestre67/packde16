@@ -49,7 +49,7 @@ class App extends Component {
 
 		let og_meta = document.querySelectorAll('meta[property^=og');
 		let track = this.props.tracks[step];
-		let content = [window.location.href, 'article', track.title, track.feat, track.avatar];
+		let content = [window.location.href, 'article', track.title, track.feat, track.avatar, 'fr_FR'];
 
 		for(let i = 0; i < og_meta.length; i++){
 			og_meta[i].setAttribute('content',content[i] );
