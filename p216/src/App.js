@@ -36,12 +36,24 @@ class App extends Component {
 
 	componentDidMount(){
 		if(window.location.hash !== ''){
-			this.refs.reactSwipe.slide(+(window.location.hash.replace('#','')), 250);
+			let step = +(window.location.hash.replace('#',''));
+			this.refs.reactSwipe.slide(step, 250);
+			this._updateLocationHash(step);
+		}else{
+			this._updateLocationHash(0);
 		}
 	}
 
 	_updateLocationHash(step){
 		window.location.hash = step;
+
+		let og_meta = document.querySelectorAll('meta[property^=og');
+		let track = this.props.tracks[step];
+		let content = [window.location.href, 'article', track.title, track.feat, track.avatar];
+
+		for(let i = 0; i < og_meta.length; i++){
+			og_meta[i].setAttribute('content',content[i] );
+		}
 	}
 
 	nextTrack() {
