@@ -89,7 +89,8 @@ class App extends Component {
 				     style={{'backgroundImage': ['url(', this.props.listOfImages[0], ')'].join('')}}>
 					{this.renderReactSwipe()}
 					<Track {...this.state} />
-					<NextPrevious step={this.state.step}
+					<NextPrevious numberOfTracks={this.props.listOfImages.length}
+						step={this.state.step}
 						onNext={this.nextTrack}
 						onPrev={this.prevTrack} />
 					<MediaPlayer audio={this.state.audio} />
