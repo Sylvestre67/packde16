@@ -34,10 +34,23 @@ class App extends Component {
 		});
 	}
 
+	componentDidMount(){
+		if(window.location.hash !== ''){
+			this.refs.reactSwipe.slide(+(window.location.hash.replace('#','')), 250);
+		}
+	}
+
+	_updateLocationHash(step){
+		window.location.hash = step;
+	}
+
 	nextTrack() {
 		this.refs.reactSwipe.next();
 
 		this.setState((prevState) => {
+
+			this._updateLocationHash( this.refs.reactSwipe.getPos());
+
 			return {
 				step: this.refs.reactSwipe.getPos(),
 				audio: this.props.tracks[this.refs.reactSwipe.getPos()]
@@ -47,12 +60,17 @@ class App extends Component {
 
 	prevTrack() {
 		this.refs.reactSwipe.prev();
+
 		this.setState((prevState) => {
+
+			this._updateLocationHash( this.refs.reactSwipe.getPos());
+
 			return {
 				step: this.refs.reactSwipe.getPos(),
 				audio: this.props.tracks[this.refs.reactSwipe.getPos()]
 			}
 		});
+
 	}
 
 	renderIllustrations(){
