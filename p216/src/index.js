@@ -18,21 +18,21 @@ ReactGA.initialize('UA-104523856-1');
 
 const tracks = [
 	{
-		url  : 'https://s3.eu-central-1.amazonaws.com/pack-de-16/11_je_ne_comprends_pas.mp3',
-		title: 'Je ne comprends pas',
+		url  : 'https://s3.eu-central-1.amazonaws.com/pack-de-16/1.%23INTRODUCTION.mp3',
+		title: 'JIntroduction',
 		feat : '#packde16',
 		avatar: burger
 	},
 	{
-		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/pack_de_nyls.mp3',
-		title: 'Pack de Nyls',
-		feat: 'Nyls',
+		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/2.%23MAGUEULE.mp3',
+		title: 'Ma Gueule',
+		feat: 'Paul',
 		avatar: ride
 	},
 	{
-		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/pack_de_nyls.mp3',
-		title: 'Pack de Nyls',
-		feat: 'Jeser',
+		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/3.%23PACKDEKOZ.mp3',
+		title: 'Pack de Koz',
+		feat: 'Mr. Kozmo',
 		avatar: toy
 	}
 ];
