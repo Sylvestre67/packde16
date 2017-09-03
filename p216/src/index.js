@@ -13,9 +13,6 @@ import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
 
-const ReactGA = require('react-ga');
-ReactGA.initialize('UA-104523856-1');
-
 const tracks = [
 	{
 		url  : 'https://s3.eu-central-1.amazonaws.com/pack-de-16/1.%23INTRODUCTION.mp3',
