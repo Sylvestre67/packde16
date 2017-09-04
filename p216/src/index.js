@@ -132,10 +132,17 @@ const tracks = [
 		title: 'Je ne comprends pas',
 		feat: '#PackDe16',
 		avatar: toy
+	},
+	{
+		id: uuidv4(),
+		url: '',
+		title: '',
+		feat: '',
+		avatar: toy
 	}
 ];
 
-const listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy, blue_sky, bombes, caisse, burger, phone, ride, dinner, toy];
+const listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy, blue_sky, bombes, caisse, burger, phone, ride, dinner, toy, ride];
 
 ReactDOM.render(<App tracks={tracks} listOfImages={listOfImages} />, document.getElementById('root'));
 registerServiceWorker();

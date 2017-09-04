@@ -20,14 +20,25 @@ class Track extends Component{
 				</div>
 		</div>;
 
+		const credit = <div className="credit">
+				<div>
+					<p>Merci !</p>
+					<p>Loreum Ipsum Dolor Sir Ememet</p>
+				</div>
+		</div>;
+
 		return (
+
 			<CSSTransitionGroup
 				transitionName="slide-in"
 				transitionAppear={true}
 				transitionAppearTimeout={500}
 				transitionEnterTimeout={500}
 				transitionLeaveTimeout={300}>
-				{track}
+				{(this.props.step < 16)
+					? track
+					: credit
+				}
 			</CSSTransitionGroup>
 		);
 	}

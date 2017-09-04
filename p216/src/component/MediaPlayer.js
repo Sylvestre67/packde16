@@ -15,7 +15,10 @@ class MediaPlayer extends Component{
 						<Player src={this.props.audio.url}
 						        vendor="audio"
 						        autoPlay={true}/>
-						<MediaCommand {...this.props} />
+						{(this.props.audio.url !== '')
+							? <MediaCommand {...this.props} />
+							: ''
+						}
 					</div>
 				</Media>
 			</div>
