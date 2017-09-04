@@ -21,11 +21,17 @@ class Track extends Component{
 		</div>;
 
 		const credit = <div className="credit">
-				<div>
-					<p>Merci !</p>
-					<p>Loreum Ipsum Dolor Sir Ememet</p>
-				</div>
-		</div>;
+						<p>All songs written by Kozmo, arranged and mixed by Darius Studio.</p>
+						<p>Mastering by Darius Studio</p>
+						<p>Photography & Artwork: Bartosch Salamanski</p>
+						<p>Web: <a href="https://github.com/sylvestre67" target="_blank">Sylvestre</a></p>
+						<p>Recording: Darius Studio</p>
+						<p>Foodtruck:
+							<a href="http://auptitsawyer.fr/" target="_blank">
+								Au Ptit Sawyer
+							</a>
+						</p>
+					</div>;
 
 		return (
 
