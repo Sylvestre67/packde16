@@ -6,9 +6,7 @@ import PropTypes from 'prop-types';
 import './MediaPlayer.css';
 
 class MediaPlayer extends Component{
-
-	componentDidUpdate(prevProps, state, refs){}
-
+	
 	render() {
 		return (
 			<div className="media-player">
@@ -17,7 +15,7 @@ class MediaPlayer extends Component{
 						<Player src={this.props.audio.url}
 						        vendor="audio"
 						        autoPlay={true}/>
-						<MediaCommand />
+						<MediaCommand {...this.props} />
 					</div>
 				</Media>
 			</div>

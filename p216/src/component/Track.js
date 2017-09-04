@@ -8,13 +8,16 @@ import PropTypes from 'prop-types';
 class Track extends Component{
 
 	render() {
-		const track = <div key={this.props.audio.feat} className="track">
+		const feat = (this.props.audio.feat !== '')
+			? ['"feat. ', this.props.audio.feat,'"'].join('')
+			: '';
+
+		const track = <div key={this.props.audio.id} className="track">
 				<img src={this.props.audio.avatar} alt={['#packde16',this.props.audio.title].join(' - ')} />
 				<div>
-					<p>{this.props.audio.title}</p>
-					<p>{this.props.audio.feat}</p>
+					<p>{[this.props.step + 1,'. #',this.props.audio.title].join('')}</p>
+					<p>{feat}</p>
 				</div>
-
 		</div>;
 
 		return (

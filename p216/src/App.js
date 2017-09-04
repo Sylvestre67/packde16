@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import debounce from 'lodash.debounce';
 
 import PropTypes from 'prop-types';
 
@@ -13,7 +14,6 @@ import Track from './component/Track';
 
 import './App.css';
 
-
 injectTapEventPlugin();
 
 class App extends Component {
@@ -23,6 +23,7 @@ class App extends Component {
 		this.renderIllustrations = this.renderIllustrations.bind(this);
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
+		this._playNextOnFinish= debounce(this._playNextOnFinish.bind(this),2000);
 	}
 
 	componentWillMount(){
@@ -53,6 +54,13 @@ class App extends Component {
 
 		for(let i = 0; i < og_meta.length; i++){
 			og_meta[i].setAttribute('content',content[i] );
+		}
+	}
+
+	_playNextOnFinish(){
+		console.log('playing next ?');
+		if(this.state.step <= this.props.tracks.length){
+			this.nextTrack();
 		}
 	}
 
@@ -123,7 +131,7 @@ class App extends Component {
 						step={this.state.step}
 						onNext={this.nextTrack}
 						onPrev={this.prevTrack} />
-					<MediaPlayer audio={this.state.audio} />
+					<MediaPlayer playNextOnFinish={this._playNextOnFinish} audio={this.state.audio} />
 				</div>
 			</MuiThemeProvider>
 		);
