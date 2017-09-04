@@ -38,7 +38,7 @@ class MediaCommand extends Component{
 	}
 
 	onUpdate({ media}){
-		console.log(this.props.media.currentTime / this.props.media.duration);
+		// console.log(this.props.media.currentTime / this.props.media.duration);
 
 		if(this.props.media.currentTime / this.props.media.duration === 1){
 			this.props.playNextOnFinish();
