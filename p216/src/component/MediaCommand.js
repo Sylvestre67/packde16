@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import './MediaCommand.css';
 import '../assets/icons/font/css/open-iconic.css';
 
+
+
 import IconButton from 'material-ui/IconButton';
 import AvPause from 'material-ui/svg-icons/av/pause';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import { withMediaProps } from 'react-media-player'
 
@@ -31,21 +34,40 @@ const styles = {
 };
 
 class MediaCommand extends Component{
-
-	shouldComponentUpdate({ media}, nextState) {
-		this.onUpdate({media});
-		return true
+	constructor(props){
+		super(props);
+		this.state = { hasBeenReset: false };
 	}
 
-	onUpdate({ media}){
-		// console.log(this.props.media.currentTime / this.props.media.duration);
+	// shouldComponentUpdate({media}) {
+	// 	if(media.currentTime / media.duration === 1 && !media.isPlaying){
+	// 		console.log('Playing Next');
+	// 		console.log(this.state);
+	// 		if(!this.state.hasBeenReset){
+	// 			this.setState((prevProps) => { return { hasBeenReset : true } });
+	//
+	// 			setTimeout(() => {
+	// 				this.props.playNextOnFinish();
+	// 				this.setState((prevProps) => {
+	// 					return { hasBeenReset : false }
+	// 				});
+	// 			},500);
+	// 		}
+	//
+	// 	}
+	// 	return true
+	// }
 
-		if(this.props.media.currentTime / this.props.media.duration === 1){
-			this.props.playNextOnFinish();
-		}
-		
-		return this.props.media.isPlaying !== media.isPlaying;
-	}
+	// onUpdate({media}){
+	// 	// console.log(this.props.media.currentTime / this.props.media.duration);
+	//
+	// 	if(this.props.media.currentTime / this.props.media.duration === 1){
+	// 		debugger;
+	//
+	// 		this.state.playNextOnFinish();
+	// 	}
+	//
+	// }
 
 	componentDidUpdate(prevProps, prevState){}
 
@@ -53,8 +75,17 @@ class MediaCommand extends Component{
 		this.props.media.playPause()
 	};
 
+	_renderPlayIcon(){
+		let icon = <CircularProgress />;
+		if(this.props.media.isLoading){
+			icon = <CircularProgress color="black" />
+		}else{
+			if(this.props.media.isPlaying){ icon = <AvPause /> }else{ icon = <AvPlayArrow /> }
+		}
+		return icon
+	}
+
 	render() {
-		const { media } = this.props;
 		return (
 				<div className="media-command">
 					<IconButton className="media-btn"
@@ -62,7 +93,7 @@ class MediaCommand extends Component{
 					    touch={true}
 						iconStyle={styles.mediumIcon}
 						onClick={this._handlePlayPause}>
-						{media.isPlaying ? <AvPause /> : <AvPlayArrow />}
+						{this._renderPlayIcon()}
 					</IconButton>
 				</div>
 		);

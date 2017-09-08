@@ -24,8 +24,9 @@ import je_ne_comprends_pas from './img/je_ne_comprends_pas.png';
 
 import bombes from './img/bombes.png';
 import caisse from './img/caisse.png';
+import caisse_bis from './img/caisse_2.png';
 import burger from './img/burger.png';
-
+import mark from './img/mark.png';
 import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
@@ -115,14 +116,14 @@ const tracks = [
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/10.%23PACKDEPAUL.mp3',
 		title: 'Pack de Paul',
 		feat: 'PAUL',
-		avatar: toy
+		avatar: mark
 	},
 	{
 		id: uuidv4(),
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/11.%23PACKDENYLS.mp3',
 		title: 'Pack de Nyls',
 		feat: 'NYLS',
-		avatar: toy
+		avatar: caisse_bis
 	},
 	{
 		id: uuidv4(),
@@ -136,28 +137,28 @@ const tracks = [
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/13.%23PACKDEKRIKE.mp3',
 		title: 'Pack de Krike',
 		feat: 'MC. KRIKE',
-		avatar: toy
+		avatar: burger
 	},
 	{
 		id: uuidv4(),
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/14.%23ARTISTERATE.mp3',
 		title: 'Artiste Rate',
 		feat: '',
-		avatar: toy
+		avatar: dinner
 	},
 	{
 		id: uuidv4(),
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/15.%23OUTRO.mp3',
 		title: 'Outro',
 		feat: '',
-		avatar: toy
+		avatar: caisse_bis
 	},
 	{
 		id: uuidv4(),
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/16.%23JENECOMPRENDPAS.mp3',
 		title: 'Je ne comprends pas',
 		feat: '#PackDe16',
-		avatar: toy
+		avatar: mark
 	},
 	{
 		id: uuidv4(),

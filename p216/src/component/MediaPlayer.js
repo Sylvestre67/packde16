@@ -16,7 +16,8 @@ class MediaPlayer extends Component{
 						        vendor="audio"
 						        autoPlay={true}/>
 						{(this.props.audio.url !== '')
-							? <MediaCommand {...this.props} />
+							? <MediaCommand
+								playNextOnFinish={this.props.playNextOnFinish} />
 							: ''
 						}
 					</div>

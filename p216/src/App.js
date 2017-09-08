@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import debounce from 'lodash.debounce';
+
 
 import PropTypes from 'prop-types';
 
@@ -23,7 +23,7 @@ class App extends Component {
 		this.renderIllustrations = this.renderIllustrations.bind(this);
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
-		this._playNextOnFinish= debounce(this._playNextOnFinish.bind(this),2000);
+		this._playNextOnFinish= this._playNextOnFinish.bind(this);
 	}
 
 	componentWillMount(){
@@ -60,7 +60,6 @@ class App extends Component {
 	}
 
 	_playNextOnFinish(){
-		console.log('playing next ?');
 		if(this.state.step <= this.props.tracks.length){
 			this.nextTrack();
 		}
