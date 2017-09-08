@@ -4,7 +4,23 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import blue_sky from './img/blue_sky.png';
+import intro from './img/intro.png';
+import ma_gueule from './img/ma_gueule.png';
+import pack_de_koz from './img/pack_de_koz.png';
+import visage from './img/visage.png';
+import moment from './img/moments.png';
+import pack_de_lautrec from './img/pack_de_lautrec.png';
+import sugar_man from './img/sugar_man.png';
+import cremant_redbull from './img/cremant_redbull.png';
+import pack_de_paul from './img/pack_de_paul.png';
+import pack_de_nyls from './img/pack_de_nyls.png';
+import noctambule from './img/noctambule.png';
+import pack_de_krike from './img/pack_de_krike.png';
+import artiste_rate from './img/artiste_rate.png';
+import outro from './img/outro.png';
+import je_ne_comprends_pas from './img/je_ne_comprends_pas.png';
+
+
 import bombes from './img/bombes.png';
 import caisse from './img/caisse.png';
 import burger from './img/burger.png';
@@ -12,6 +28,10 @@ import phone from './img/phone.png';
 import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
+
+const listOfImages = [intro, ma_gueule, pack_de_koz, pack_de_koz, visage, 
+	moment, pack_de_lautrec, sugar_man, cremant_redbull,pack_de_paul, pack_de_nyls,
+	noctambule, pack_de_krike, artiste_rate,outro, je_ne_comprends_pas];
 
 
 function uuidv4() {
@@ -141,8 +161,6 @@ const tracks = [
 		avatar: toy
 	}
 ];
-
-const listOfImages = [blue_sky, bombes, caisse, burger, phone, ride, dinner, toy, blue_sky, bombes, caisse, burger, phone, ride, dinner, toy, ride];
 
 ReactDOM.render(<App tracks={tracks} listOfImages={listOfImages} />, document.getElementById('root'));
 registerServiceWorker();
