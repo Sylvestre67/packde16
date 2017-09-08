@@ -29,12 +29,35 @@
 	background-color:rgba(255,255,255,0.5);
 }
 
-.credit{
+.credit-wrap{
 	position:absolute;
 	top:15px;
-	width:90%;
-	margin:5%;
-	padding:10px;
+	min-width:100%;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: row nowrap;
+	-moz-flex-flow: row nowrap;
+	-ms-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.credit{
+	min-width:90%;
 	background-color:rgba(255,255,255,0.8);
 	text-align:center;
 }
