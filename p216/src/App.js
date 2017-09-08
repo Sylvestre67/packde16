@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import debounce from 'lodash.debounce';
 
 import PropTypes from 'prop-types';
 
@@ -13,7 +14,6 @@ import Track from './component/Track';
 
 import './App.css';
 
-
 injectTapEventPlugin();
 
 class App extends Component {
@@ -23,6 +23,7 @@ class App extends Component {
 		this.renderIllustrations = this.renderIllustrations.bind(this);
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
+		this._playNextOnFinish= debounce(this._playNextOnFinish.bind(this),2000);
 	}
 
 	componentWillMount(){
@@ -34,10 +35,44 @@ class App extends Component {
 		});
 	}
 
+	componentDidMount(){
+		if(window.location.hash !== ''){
+			let step = +(window.location.hash.replace('#',''));
+			this.refs.reactSwipe.slide(step, 250);
+			this._updateLocationHash(step);
+		}else{
+			this._updateLocationHash(0);
+		}
+	}
+
+	_updateLocationHash(step){
+		window.location.hash = step;
+
+		let og_meta = document.querySelectorAll('meta[property^=og');
+		let track = this.props.tracks[step];
+		let content = [window.location.href, 'article', track.title, track.feat, track.avatar, 'fr_FR'];
+
+		window.ga('send', 'event', 'song', 'play', track.title);
+
+		for(let i = 0; i < og_meta.length; i++){
+			og_meta[i].setAttribute('content',content[i] );
+		}
+	}
+
+	_playNextOnFinish(){
+		console.log('playing next ?');
+		if(this.state.step <= this.props.tracks.length){
+			this.nextTrack();
+		}
+	}
+
 	nextTrack() {
 		this.refs.reactSwipe.next();
 
 		this.setState((prevState) => {
+
+			this._updateLocationHash( this.refs.reactSwipe.getPos());
+
 			return {
 				step: this.refs.reactSwipe.getPos(),
 				audio: this.props.tracks[this.refs.reactSwipe.getPos()]
@@ -47,12 +82,17 @@ class App extends Component {
 
 	prevTrack() {
 		this.refs.reactSwipe.prev();
+
 		this.setState((prevState) => {
+
+			this._updateLocationHash( this.refs.reactSwipe.getPos());
+
 			return {
 				step: this.refs.reactSwipe.getPos(),
 				audio: this.props.tracks[this.refs.reactSwipe.getPos()]
 			}
 		});
+
 	}
 
 	renderIllustrations(){
@@ -89,10 +129,11 @@ class App extends Component {
 				     style={{'backgroundImage': ['url(', this.props.listOfImages[0], ')'].join('')}}>
 					{this.renderReactSwipe()}
 					<Track {...this.state} />
-					<NextPrevious step={this.state.step}
+					<NextPrevious numberOfTracks={this.props.listOfImages.length}
+						step={this.state.step}
 						onNext={this.nextTrack}
 						onPrev={this.prevTrack} />
-					<MediaPlayer audio={this.state.audio} />
+					<MediaPlayer playNextOnFinish={this._playNextOnFinish} audio={this.state.audio} />
 				</div>
 			</MuiThemeProvider>
 		);

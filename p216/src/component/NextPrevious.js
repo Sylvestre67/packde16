@@ -31,7 +31,7 @@ class NextPrevious extends Component{
 					<HardwareKeyboardArrowLeft />
 				</IconButton>
 				<IconButton className="media-btn"
-				            disabled={this.props.step >= 7}
+				            disabled={this.props.step >= this.props.numberOfTracks - 1}
 				            style={styles.small}
 				            iconStyle={styles.smallIcon}
 				            onClick={this.props.onNext}>

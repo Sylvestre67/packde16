@@ -8,23 +8,43 @@ import PropTypes from 'prop-types';
 class Track extends Component{
 
 	render() {
-		const track = <div key={this.props.audio.feat} className="track">
+		const feat = (this.props.audio.feat !== '')
+			? ['"feat. ', this.props.audio.feat,'"'].join('')
+			: '';
+
+		const track = <div key={this.props.audio.id} className="track">
 				<img src={this.props.audio.avatar} alt={['#packde16',this.props.audio.title].join(' - ')} />
 				<div>
-					<p>{this.props.audio.title}</p>
-					<p>{this.props.audio.feat}</p>
+					<p>{[this.props.step + 1,'. #',this.props.audio.title].join('')}</p>
+					<p>{feat}</p>
 				</div>
-
 		</div>;
 
+		const credit = <div className="credit">
+						<p>All songs written by Kozmo, arranged and mixed by Darius Studio.</p>
+						<p>Mastering by Darius Studio</p>
+						<p>Photography & Artwork: Bartosch Salamanski</p>
+						<p>Web: <a href="https://github.com/sylvestre67" target="_blank">Sylvestre</a></p>
+						<p>Recording: Darius Studio</p>
+						<p>Foodtruck:
+							<a href="http://auptitsawyer.fr/" target="_blank">
+								Au Ptit Sawyer
+							</a>
+						</p>
+					</div>;
+
 		return (
+
 			<CSSTransitionGroup
 				transitionName="slide-in"
 				transitionAppear={true}
 				transitionAppearTimeout={500}
 				transitionEnterTimeout={500}
 				transitionLeaveTimeout={300}>
-				{track}
+				{(this.props.step < 16)
+					? track
+					: credit
+				}
 			</CSSTransitionGroup>
 		);
 	}

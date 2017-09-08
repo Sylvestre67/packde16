@@ -32,19 +32,22 @@ const styles = {
 
 class MediaCommand extends Component{
 
-	shouldComponentUpdate({ media }, nextState) {
+	shouldComponentUpdate({ media}, nextState) {
 		this.onUpdate({media});
 		return true
 	}
 
-	onUpdate({ media }){
-		this.props.media.currenTime = media.currentTime;
+	onUpdate({ media}){
+		// console.log(this.props.media.currentTime / this.props.media.duration);
+
+		if(this.props.media.currentTime / this.props.media.duration === 1){
+			this.props.playNextOnFinish();
+		}
+		
 		return this.props.media.isPlaying !== media.isPlaying;
 	}
 
-	componentWillMount(){
-		this.setState({current:this.props.media.currentTime})
-	}
+	componentDidUpdate(prevProps, prevState){}
 
 	_handlePlayPause = () => {
 		this.props.media.playPause()
