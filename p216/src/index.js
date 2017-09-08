@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import intro from './img/intro.png';
 import ma_gueule from './img/ma_gueule.png';
 import pack_de_koz from './img/pack_de_koz.png';
+import mon_ivresse from './img/charlie.png';
 import visage from './img/visage.png';
 import moment from './img/moments.png';
 import pack_de_lautrec from './img/pack_de_lautrec.png';
@@ -29,9 +30,9 @@ import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
 
-const listOfImages = [intro, ma_gueule, pack_de_koz, pack_de_koz, visage, 
+const listOfImages = [intro, ma_gueule, pack_de_koz, mon_ivresse, visage,
 	moment, pack_de_lautrec, sugar_man, cremant_redbull,pack_de_paul, pack_de_nyls,
-	noctambule, pack_de_krike, artiste_rate,outro, je_ne_comprends_pas];
+	noctambule, pack_de_krike, artiste_rate,outro, je_ne_comprends_pas, caisse];
 
 
 function uuidv4() {
