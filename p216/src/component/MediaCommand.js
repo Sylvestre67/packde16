@@ -104,9 +104,7 @@ class MediaCommand extends Component{
 								touch={true}
 								iconStyle={styles.mediumIcon}
 								onClick={this._handlePlayPause}>
-						{(this.props.media.isLoading)
-							? <AvPlayArrow />
-							: this._renderPlayIcon()}
+						{this._renderPlayIcon()}
 					</IconButton>
 				</div>
 		);
