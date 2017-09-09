@@ -98,7 +98,6 @@ class MediaCommand extends Component{
 	}
 
 	render() {
-		console.log(this.props.media);
 		return (
 				<div className="media-command">
 					<IconButton className="media-btn"
