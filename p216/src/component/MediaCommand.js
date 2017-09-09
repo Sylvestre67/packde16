@@ -82,19 +82,21 @@ class MediaCommand extends Component{
 	_renderPlayIcon(){
 		let icon = <AvPlayArrow />;
 
-		if(this.props.media.isLoading){
+		if(this.props.media.currentTime > 0.1
+			&& this.props.media.isPlaying){
+			icon = <AvPause />
+		}
+
+		if(this.props.media.currentTime === 0
+			&& this.props.media.isPlaying){
 			icon = <CircularProgress color='black'/>
 		}
 
-		if(this.props.media.isPlaying){
-			icon = <AvPause />
-		}
-		
 		return icon
 	}
 
 	render() {
-		console.log(this.props.media.isLoading);
+		console.log(this.props.media);
 		return (
 				<div className="media-command">
 					<IconButton className="media-btn"
