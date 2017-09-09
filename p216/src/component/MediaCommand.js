@@ -10,7 +10,7 @@ import AvPause from 'material-ui/svg-icons/av/pause';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import { withMediaProps } from 'react-media-player'
+import { withMediaProps } from '../assets/audio/media-player/lib/react-media-player';
 
 const styles = {
 	smallIcon: {
@@ -71,34 +71,47 @@ class MediaCommand extends Component{
 
 	componentDidUpdate(prevProps, prevState){}
 
+	componentDidMount(){
+		this._handlePlayPause();
+	}
+
 	_handlePlayPause = () => {
 		this.props.media.playPause()
 	};
 
 	_renderPlayIcon(){
-		let icon = <CircularProgress />;
+		let icon = <AvPlayArrow />;
+
 		if(this.props.media.isLoading){
-			icon = <CircularProgress color="black" />
-		}else{
-			if(this.props.media.isPlaying){ icon = <AvPause /> }else{ icon = <AvPlayArrow /> }
+			icon = <CircularProgress color='black'/>
 		}
+
+		if(this.props.media.isPlaying){
+			icon = <AvPause />
+		}
+		
 		return icon
 	}
 
 	render() {
+		console.log(this.props.media.isLoading);
 		return (
 				<div className="media-command">
 					<IconButton className="media-btn"
-						style={styles.medium}
-					    touch={true}
-						iconStyle={styles.mediumIcon}
-						onClick={this._handlePlayPause}>
-						{this._renderPlayIcon()}
+								style={styles.medium}
+								touch={true}
+								iconStyle={styles.mediumIcon}
+								onClick={this._handlePlayPause}>
+						{(this.props.media.isLoading)
+							? <AvPlayArrow />
+							: this._renderPlayIcon()}
 					</IconButton>
 				</div>
 		);
 	}
 }
+
+// {(this.props.media.isLoading) ? <CircularProgress color='black'/> : this._renderPlayIcon()}
 
 MediaCommand.propTypes = {
 	media: PropTypes.object.isRequired

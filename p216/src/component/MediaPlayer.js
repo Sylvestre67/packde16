@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Media, Player } from 'react-media-player';
+import { Media, Player } from '../assets/audio/media-player/lib/react-media-player';
 import MediaCommand from './MediaCommand';
 import PropTypes from 'prop-types';
 
@@ -14,7 +14,7 @@ class MediaPlayer extends Component{
 					<div style={{width:'100%'}}>
 						<Player src={this.props.audio.url}
 						        vendor="audio"
-						        autoPlay={true}/>
+						        autoPlay={false}/>
 						{(this.props.audio.url !== '')
 							? <MediaCommand
 								playNextOnFinish={this.props.playNextOnFinish} />

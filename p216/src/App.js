@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-
 import PropTypes from 'prop-types';
-
 import ReactSwipe from 'react-swipe';
 
 import Illustration from './component/Illustration';
@@ -24,15 +22,11 @@ class App extends Component {
 		this.prevTrack = this.prevTrack.bind(this);
 		this.nextTrack = this.nextTrack.bind(this);
 		this._playNextOnFinish= this._playNextOnFinish.bind(this);
-	}
 
-	componentWillMount(){
-		this.setState(() => {
-			return {
+		this.state = {
 				step: 0,
 				audio: this.props.tracks[0]
-			}
-		});
+			};
 	}
 
 	componentDidMount(){
@@ -47,16 +41,8 @@ class App extends Component {
 
 	_updateLocationHash(step){
 		window.location.hash = step;
-
-		let og_meta = document.querySelectorAll('meta[property^=og');
 		let track = this.props.tracks[step];
-		let content = [window.location.href, 'article', track.title, track.feat, track.avatar, 'fr_FR'];
-
 		window.ga('send', 'event', 'song', 'play', track.title);
-
-		for(let i = 0; i < og_meta.length; i++){
-			og_meta[i].setAttribute('content',content[i] );
-		}
 	}
 
 	_playNextOnFinish(){
