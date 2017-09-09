@@ -26,12 +26,10 @@ import bombes from './img/bombes.png';
 import caisse from './img/caisse.png';
 import caisse_bis from './img/caisse_2.png';
 import burger from './img/burger.png';
-import mark from './img/mark.png';
 import ride from './img/ride.png';
 import dinner from './img/dinner.png';
 import toy from './img/toy.png';
 import check from './img/check.png';
-import comptoir from './img/comptoir.png';
 
 // Wrong orientation --- DO NOT USE
 // import phone from './img/phone.png';
@@ -102,7 +100,7 @@ const tracks = [
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/8.%23SUGARMAN.mp3',
 		title: 'Sugar Man',
 		feat: 'YANNICK EICHERT & AKASHA',
-		avatar: comptoir
+		avatar: bombes
 	},
 	{
 		id: uuidv4(),
@@ -116,7 +114,7 @@ const tracks = [
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/10.%23PACKDEPAUL.mp3',
 		title: 'Pack de Paul',
 		feat: 'PAUL',
-		avatar: mark
+		avatar: burger
 	},
 	{
 		id: uuidv4(),
@@ -158,7 +156,7 @@ const tracks = [
 		url: 'https://s3.eu-central-1.amazonaws.com/pack-de-16/16.%23JENECOMPRENDPAS.mp3',
 		title: 'Je ne comprends pas',
 		feat: '#PackDe16',
-		avatar: mark
+		avatar: burger
 	},
 	{
 		id: uuidv4(),

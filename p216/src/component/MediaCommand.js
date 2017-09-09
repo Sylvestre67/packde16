@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import './MediaCommand.css';
 import '../assets/icons/font/css/open-iconic.css';
 
-
-
 import IconButton from 'material-ui/IconButton';
 import AvPause from 'material-ui/svg-icons/av/pause';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import { withMediaProps } from '../assets/audio/media-player/lib/react-media-player';
+import { withMediaProps } from 'react-media-player';
 
 const styles = {
 	smallIcon: {
@@ -80,16 +78,20 @@ class MediaCommand extends Component{
 	};
 
 	_renderPlayIcon(){
-		let icon = <AvPlayArrow />;
+		let icon;
 
 		if(this.props.media.currentTime > 0.1
 			&& this.props.media.isPlaying){
 			icon = <AvPause />
 		}
 
-		if(this.props.media.currentTime === 0
+		else if(this.props.media.currentTime === 0
 			&& this.props.media.isPlaying){
 			icon = <CircularProgress color='black'/>
+		}
+
+		else{
+			icon = <AvPlayArrow />;
 		}
 
 		return icon
