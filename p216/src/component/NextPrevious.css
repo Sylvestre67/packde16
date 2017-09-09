@@ -20,6 +20,6 @@
 
 @media all and (max-width: 728px){
 	.next-previous{
-		display:none;
+		/*display:none;*/
 	}
 }
