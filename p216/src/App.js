@@ -9,6 +9,7 @@ import Illustration from './component/Illustration';
 import MediaPlayer from './component/MediaPlayer';
 import NextPrevious from './component/NextPrevious';
 import Track from './component/Track';
+import OtherPlatform from './component/OtherPlatform';
 
 import './App.css';
 
@@ -114,6 +115,7 @@ class App extends Component {
 				     style={{'backgroundImage': ['url(', this.props.listOfImages[0], ')'].join('')}}>
 					{this.renderReactSwipe()}
 					<Track {...this.state} />
+					<OtherPlatform />
 					<NextPrevious numberOfTracks={this.props.listOfImages.length}
 						step={this.state.step}
 						onNext={this.nextTrack}
