@@ -24,11 +24,11 @@ class Track extends Component{
 						<div className="credit">
 							<p>All songs written by Kozmo, arranged and mixed by Darius Studio.</p>
 							<p>Mastering by Darius Studio</p>
-							<p>Photography & Artwork: Bartosch Salamanski</p>
+							<p>Photography & Artwork: Bartosch Salmanski & Garance Frisson</p>
 							<p>Web: <a href="https://github.com/sylvestre67"
 							           target="_blank" rel="noopener noreferrer">Sylvestre</a></p>
 							<p>Recording: Darius Studio</p>
-							<p>Foodtruck:
+							<p>Foodtruck: 
 								<a href="http://auptitsawyer.fr/" target="_blank" rel="noopener noreferrer">
 									Au Ptit Sawyer
 								</a>
