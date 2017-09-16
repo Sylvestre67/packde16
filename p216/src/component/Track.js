@@ -23,7 +23,7 @@ class Track extends Component{
 		const credit = <div className="credit-wrap">
 						<div className="credit">
 							<p>All songs written by Kozmo, arranged and mixed by Darius Studio.</p>
-							<p>Mastering by Darius Studio</p>
+							<p>Mastering by Darius Studio - Gérald Koehl</p>
 							<p>Photography & Artwork: Bartosch Salmanski & Garance Frisson</p>
 							<p>Web: <a href="https://github.com/sylvestre67"
 							           target="_blank" rel="noopener noreferrer">Sylvestre</a></p>
