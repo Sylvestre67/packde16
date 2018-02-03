@@ -1,25 +1,25 @@
 {
-  "name": "p216",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "lodash.debounce": "^4.0.8",
-    "material-ui": "^0.19.0",
-    "open-iconic": "^1.1.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-media-player": "^0.6.3",
-    "react-swipe": "^5.0.8",
-    "react-tap-event-plugin": "^2.0.1",
-    "swipe-js-iso": "^2.0.3"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.10"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "p216",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "lodash.debounce": "^4.0.8",
+        "material-ui": "^0.19.0",
+        "open-iconic": "^1.1.1",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-media-player": "^0.6.3",
+        "react-swipe": "^5.0.8",
+        "react-tap-event-plugin": "^2.0.1",
+        "swipe-js-iso": "^2.0.3"
+    },
+    "devDependencies": {
+        "react-scripts": "1.0.10"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "export NODE_ENV=production && react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    }
 }
